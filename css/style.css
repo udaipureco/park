@@ -595,7 +595,40 @@ padding:20px 15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:12px;
+margin-bottom:15px;
+gap:10px;
+}
+
+/* 🔥 NEW TITLE DESIGN */
+
+.gallery-title{
+display:flex;
+align-items:center;
+gap:8px;
+flex:1;
+}
+
+.gallery-title h2{
+font-size:22px;
+color:#2e4a2e;
+font-weight:800;
+margin:0;
+white-space:nowrap;
+letter-spacing:1px;
+}
+
+/* LINE */
+.gallery-title .line{
+flex:1;
+height:2px;
+background:#3f5f3f;
+opacity:0.5;
+}
+
+/* LEAF */
+.leaf{
+width:18px;
+height:18px;
 }
 
 .gallery-header h2{
@@ -608,12 +641,12 @@ font-size:20px;
 background:#3f5f3f;
 color:#efe6d6;
 border:none;
-padding:8px 14px;
-border-radius:10px;
+padding:10px 18px;
+border-radius:25px;
 font-weight:700;
 
 box-shadow:
-0 5px 15px rgba(0,0,0,0.3),
+0 6px 18px rgba(0,0,0,0.3),
 0 0 10px rgba(63,95,63,0.5);
 
 transition:0.3s;
@@ -621,8 +654,9 @@ transition:0.3s;
 
 .view-btn:hover{
 transform:translateY(-2px);
+
 box-shadow:
-0 10px 25px rgba(0,0,0,0.4),
+0 12px 25px rgba(0,0,0,0.4),
 0 0 15px rgba(63,95,63,0.8);
 }
 
@@ -636,7 +670,7 @@ gap:10px;
 /* 🔥 IMAGE STYLE */
 .gallery-grid img{
 width:100%;
-height:140px;
+height:120px;
 object-fit:cover;
 border-radius:12px;
 

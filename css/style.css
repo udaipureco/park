@@ -702,6 +702,291 @@ background:#2f4f2f;
 transform:scale(0.92);
 }
 
+/* ================= TICKET PRO PREMIUM ================= */
+
+.ticket{
+text-align:center;
+padding:40px 20px;
+background:linear-gradient(
+to bottom,
+#efe6d6,
+#f5f1e8
+);
+}
+
+/* 🔥 HEADING LINE PREMIUM */
+.ticket-title{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+margin-bottom:10px;
+}
+
+.ticket-title::before,
+.ticket-title::after{
+content:"";
+flex:1;
+height:2px;
+
+/* 🔥 GRADIENT LINE */
+background:linear-gradient(
+to right,
+transparent,
+#3f5f3f,
+transparent
+);
+}
+
+.ticket-title h2{
+color:#2e4a2e;
+font-size:26px;
+font-weight:800;
+letter-spacing:1px;
+margin:0;
+}
+
+/* 🔥 SUBTEXT */
+.ticket-sub{
+color:#3f5f3f;
+letter-spacing:3px;
+font-size:13px;
+margin-bottom:22px;
+opacity:0.9;
+}
+
+/* ================= BUTTON ================= */
+
+.btn-main{
+background:linear-gradient(
+135deg,
+#3f5f3f,
+#3f5f3f,
+#3f5f3f
+);
+
+color:#efe6d6;
+padding:14px 28px;
+border:none;
+border-radius:12px;
+
+font-weight:800;
+letter-spacing:1.2px;
+font-size:14px;
+
+/* 🔥 DEPTH + GLOW */
+box-shadow:
+0 8px 20px rgba(0,0,0,0.35),
+0 0 12px rgba(63,95,63,0.5);
+
+/* 🔥 SMOOTH */
+transition:all 0.35s ease;
+position:relative;
+overflow:hidden;
+}
+
+/* 🔥 GLOW ANIMATION */
+.btn-main::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.4),
+transparent
+);
+
+transition:0.5s;
+}
+
+/* 🔥 HOVER EFFECT */
+.btn-main:hover{
+transform:translateY(-3px) scale(1.05);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,0.45),
+0 0 25px rgba(63,95,63,0.8);
+}
+
+/* 🔥 SHINE MOVE */
+.btn-main:hover::before{
+left:100%;
+}
+/* ================= EXTRA ================= */
+
+html{
+scroll-behavior:smooth;
+}
+
+button{
+cursor:pointer;
+}
+.left-controls{
+display:flex;
+gap:10px;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+padding:10px;
+}
+
+.card{
+background:#efe6d6;
+border-radius:12px;
+overflow:hidden;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.15),
+0 5px 10px rgba(0,0,0,0.08);
+
+text-align:center;
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+position:relative;
+will-change: transform;
+}
+
+/* 🔥 SHINE EFFECT */
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+/* 🔥 FIX: overlay ko upar rakh */
+z-index:1;
+pointer-events:none;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.2),
+transparent
+);
+
+transition:0.6s;
+}
+
+.card:hover{
+transform:translateY(-12px) scale(1.08);
+
+box-shadow:
+0 25px 50px rgba(0,0,0,0.35),
+0 0 20px rgba(63,95,63,0.4);
+}
+
+.card:hover::before{
+left:100%;
+}
+
+/* 🔥 PREMIUM SHADOW + GREEN GLOW */
+box-shadow:
+0 20px 40px rgba(0,0,0,0.3),
+0 0 20px rgba(63,95,63,0.4);
+}
+
+.card *{
+position:relative;
+z-index:2;
+}
+
+.card img{
+width:100%;
+height:105px;
+object-fit:cover;
+transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.card:hover img{
+transform:scale(1.1);
+filter:brightness(1.1);
+}
+
+.card h3{
+font-size:15px;
+margin:12px 10px;   /* 🔥 better spacing */
+color:#2e4a2e;
+font-weight:700;
+letter-spacing:0.5px;
+text-align:center;  /* 🔥 center align */
+}
+
+.card button{
+background:#3f5f3f;
+color:#efe6d6;
+...
+transition:0.3s;
+}
+
+/* 🔥 YAHAN ADD KARNA HAI (EXACT) */
+
+.explore-btn{
+display:flex;
+justify-content:center;
+margin-bottom:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.explore-btn svg{
+width:140px;
+transition:0.3s;
+}
+
+.card:hover .explore-btn svg{
+transform:none; /* 🔥 zoom hata diya */
+
+filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3))
+        drop-shadow(0 0 10px rgba(63,95,63,0.4));
+}
+
+/* ================= FOREST BACKGROUND ================= */
+
+.services-bg{
+position:relative;
+padding:30px 15px 25px;
+
+background:url("../images/bgcard/forest.jpg");
+background-size:cover;
+background-position:center;
+border-radius:18px;
+overflow:hidden;
+}
+
+/* 🔥 BLUR LAYER */
+.services-bg::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+/* 🔥 BLUR + DARK */
+background:rgba(0,0,0,0.20);
+backdrop-filter:blur(1px);
+
+z-index:1;
+}
+
+/* 🔥 CONTENT UPPER */
+.services-bg *{
+position:relative;
+z-index:2;
+}
+
 /* ================= DESKTOP FIX ================= */
 @media (min-width:768px){
 

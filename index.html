@@ -54,7 +54,7 @@
       <div class="ctrl-btn">English</div>
     </div>
 
-    <div class="ctrl-btn menu-btn">
+    <div class="ctrl-btn menu-btn" id="heroMenuBtn">
       <svg viewBox="0 0 32 32" class="menu-svg">
         <circle cx="10" cy="10" r="5" fill="#efe6d6"/>
         <path d="M2 26c0-5 4-8 8-8s8 3 8 8" fill="#efe6d6"/>
@@ -848,5 +848,22 @@ document.getElementById("menu").addEventListener("click", function(e){
     closeMenu();
   }
 });
+
+</script>
+
+<script>
+
+function openMenu(){
+  document.getElementById("menu").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeMenu(){
+  document.getElementById("menu").classList.remove("active");
+  document.body.style.overflow = "auto";
+}
+
+/* HERO MENU BUTTON FIX */
+document.getElementById("heroMenuBtn").addEventListener("click", openMenu);
 
 </script>

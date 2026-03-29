@@ -1706,6 +1706,110 @@ padding-left:30px;
   }
 }
 
+/* ================= SOUVENIR SHOP ================= */
+
+.souvenir{
+  padding:20px 15px;
+}
+
+/* MAIN BOX */
+.souvenir-box{
+  display:flex;
+  align-items:center;
+
+  background:#efe6d6;
+  border-radius:25px;
+  overflow:hidden;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.2),
+    0 0 20px rgba(63,95,63,0.2);
+
+  transition:0.4s ease;
+
+  opacity:0;
+  transform:translateY(40px);
+  animation:fadeUp 0.8s ease forwards;
+}
+
+/* HOVER */
+.souvenir-box:hover{
+  transform:translateY(-5px);
+
+  box-shadow:
+    0 25px 50px rgba(0,0,0,0.3),
+    0 0 25px rgba(63,95,63,0.4);
+}
+
+/* IMAGE */
+.souvenir-img{
+  width:45%;
+  height:140px;
+  overflow:hidden;
+}
+
+.souvenir-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+
+  mask-image: linear-gradient(to right, black 70%, transparent);
+  -webkit-mask-image: linear-gradient(to right, black 70%, transparent);
+
+  transition:0.4s;
+}
+
+.souvenir-box:hover .souvenir-img img{
+  transform:scale(1.05);
+}
+
+/* CONTENT */
+.souvenir-content{
+  flex:1;
+  padding:20px;
+}
+
+/* TEXT */
+.souvenir-content h2{
+  margin:0;
+  font-size:22px;
+  color:#3f5f3f;
+  font-weight:900;
+}
+
+.souvenir-content p{
+  margin:5px 0 15px;
+  font-size:18px;
+  color:#b07a2a;
+  font-weight:700;
+}
+
+/* BUTTON */
+.souvenir-btn{
+  background:#e6dccb;
+  color:#3f5f3f;
+
+  padding:10px 22px;
+  border:none;
+  border-radius:25px;
+
+  font-weight:800;
+  cursor:pointer;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.2);
+
+  transition:0.3s;
+}
+
+.souvenir-btn:hover{
+  transform:scale(1.05);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.3),
+    0 0 15px rgba(63,95,63,0.4);
+}
+
 /* ================= GALLERY ================= */
 
 .gallery{

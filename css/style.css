@@ -350,6 +350,74 @@ transform:translateY(0);
 }
 }
 
+/* 🔥 POPUP BACKGROUND */
+.popup{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  background:rgba(0,0,0,0.6);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:9999;
+}
+
+/* BOX */
+.popup-box{
+  width:90%;
+  max-width:350px;
+
+  background:#efe6d6;
+  border-radius:18px;
+  overflow:hidden;
+
+  animation:fadeUp 0.3s ease;
+}
+
+/* HEADER */
+.popup-header{
+  position:relative;   /* 🔥 important */
+
+  background:#3f5f3f;
+  color:#efe6d6;
+
+  padding:12px;
+  text-align:center;   /* 🔥 center content */
+}
+
+.popup-header h2{
+  margin:0;
+  font-size:20px;
+  font-weight:800;
+
+  text-align:center;
+}
+
+/* CLOSE BUTTON */
+#closePopup{
+  position:absolute;   /* 🔥 magic yahi hai */
+  right:12px;
+  top:10px;
+
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* CONTENT */
+.popup-content{
+  padding:15px;
+  color:#333;
+}
+
+.popup-content h3{
+  margin-top:10px;
+  color:#3f5f3f;
+}
 
 /* ================= BOATING ================= */
 
@@ -373,7 +441,7 @@ width:100%;
 height:100%;
 
 background:rgba(255,255,255,0.01);
-backdrop-filter:blur(2px);
+backdrop-filter:blur(0.8px);
 
 z-index:1;
 }

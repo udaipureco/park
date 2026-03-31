@@ -6,7 +6,7 @@ function openMenu(){
     document.body.style.overflow = "hidden";
 
     // 🔥 history add
-    history.pushState({menu:true}, "");
+    if(!menu.classList.contains("active")){   history.pushState({menu:true}, ""); }
   }
 }
 

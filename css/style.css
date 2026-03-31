@@ -2501,3 +2501,8 @@ overflow-y:auto;
 
   animation:slideIn 0.3s ease;
 }
+
+
+body.menu-open{
+  overflow:hidden;
+}

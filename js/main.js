@@ -1,88 +1,124 @@
+// ================= MENU OPEN =================
+function openMenu(){
+  const menu = document.getElementById("menu");
+  if(menu){
+    menu.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    // 🔥 history add
+    history.pushState({menu:true}, "");
+  }
+}
+
+// ================= MENU CLOSE =================
+function closeMenu(){
+  const menu = document.getElementById("menu");
+  if(menu){
+    menu.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+}
+
+// ================= ALL EVENTS =================
 document.addEventListener("DOMContentLoaded", function(){
 
-  // ===== MENU =====
-  const menuBtn = document.querySelector(".menu");
+  // ===== MENU ELEMENTS =====
+  const menu = document.getElementById("menu");
   const heroBtn = document.getElementById("heroMenuBtn");
-  const overlay = document.getElementById("menuOverlay");
-  const closeMenuBtn = document.getElementById("closeMenu");
+  const headerBtn = document.querySelector(".menu");
+  const closeBtn = document.querySelector(".close-btn");
 
-  // ===== POPUP =====
+  // ===== POPUP ELEMENTS =====
   const viewBtn = document.getElementById("viewBtn");
   const popup = document.getElementById("popup");
   const closePopup = document.getElementById("closePopup");
 
-  // ================= MENU =================
+  // ================= MENU EVENTS =================
 
-  function openMenu(){
-    overlay.classList.add("show");
-    document.body.classList.add("no-scroll");
-    history.pushState({menu:true}, "");
+  if(headerBtn){
+    headerBtn.addEventListener("click", openMenu);
   }
 
-  function closeMenu(){
-    overlay.classList.remove("show");
-    document.body.classList.remove("no-scroll");
+  if(heroBtn){
+    heroBtn.addEventListener("click", openMenu);
   }
 
-  if(menuBtn) menuBtn.addEventListener("click", openMenu);
-  if(heroBtn) heroBtn.addEventListener("click", openMenu);
-
-  if(closeMenuBtn){
-    closeMenuBtn.addEventListener("click", function(){
+  if(closeBtn){
+    closeBtn.addEventListener("click", function(){
       closeMenu();
-      history.back();
+      history.back(); // 🔥 back sync
     });
   }
 
-  if(overlay){
-    overlay.addEventListener("click", function(e){
-      if(e.target === overlay){
+  // outside click menu close
+  if(menu){
+    menu.addEventListener("click", function(e){
+      if(e.target === menu){
         closeMenu();
-        history.back();
+        history.back(); // 🔥 sync
       }
     });
   }
 
-  // ================= POPUP =================
+  // ================= POPUP EVENTS =================
 
+  // 🔥 OPEN POPUP
   if(viewBtn){
     viewBtn.addEventListener("click", function(){
-      popup.style.display = "flex";
-      document.body.style.overflow = "hidden";
-      history.pushState({popup:true}, "");
+
+      if(popup){
+        popup.style.display = "flex";
+        document.body.style.overflow = "hidden";
+
+        // 🔥 history add
+        history.pushState({popup:true}, "");
+      }
+
     });
   }
 
+  // 🔥 CLOSE POPUP BUTTON
   if(closePopup){
     closePopup.addEventListener("click", function(){
-      popup.style.display = "none";
-      document.body.style.overflow = "auto";
-      history.back();
+
+      if(popup){
+        popup.style.display = "none";
+        document.body.style.overflow = "auto";
+
+        history.back(); // 🔥 back sync
+      }
+
     });
   }
 
+  // 🔥 CLICK OUTSIDE CLOSE POPUP
   if(popup){
     popup.addEventListener("click", function(e){
+
       if(e.target === popup){
         popup.style.display = "none";
         document.body.style.overflow = "auto";
-        history.back();
+
+        history.back(); // 🔥 sync
       }
+
     });
   }
 
-  // ================= BACK BUTTON =================
-
+  // ================= 🔥 BACK BUTTON CONTROL =================
   window.addEventListener("popstate", function(){
 
+    // popup open hai to close karo
     if(popup && popup.style.display === "flex"){
       popup.style.display = "none";
       document.body.style.overflow = "auto";
       return;
     }
 
-    if(overlay && overlay.classList.contains("show")){
-      closeMenu();
+    // menu open hai to close karo
+    if(menu && menu.classList.contains("active")){
+      menu.classList.remove("active");
+      document.body.style.overflow = "auto";
       return;
     }
 

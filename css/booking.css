@@ -1,0 +1,280 @@
+/* GLOBAL */
+body{
+  margin:0;
+  font-family:Arial;
+  background:#efe6d6;
+  display:flex;
+  justify-content:center;
+}
+
+/* CONTAINER */
+.container{
+  width:100%;
+  max-width:420px;
+  padding:15px;
+}
+
+/* HEADER */
+.top-header{
+  text-align:center;
+  margin-bottom:20px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* TITLE */
+.title-box h1{
+  margin:0;
+  font-size:20px;
+  font-weight:900;
+  color:#3f5f3f;
+}
+
+.title-box p{
+  margin-top:4px;
+  font-size:13px;
+  color:#333;
+}
+
+/* BACK BUTTON */
+.back-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:15px;
+  align-self:flex-start;
+
+  background:#3f5f3f;
+  color:#fff;
+  border:none;
+  border-radius:30px;
+
+  padding:10px 16px;
+  font-size:13px;
+  font-weight:700;
+
+  box-shadow:0 6px 14px rgba(0,0,0,0.2);
+  cursor:pointer;
+}
+
+/* CARD */
+.box{
+  background:#fff;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* NOTE */
+.note{
+  color:#b00020;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+/* DATE */
+#date{
+  width:100%;
+  padding:14px;
+
+  border-radius:12px;
+  border:1px solid #ccc;
+
+  background:#f1f1f1;
+  font-weight:700;
+  text-align:center;
+
+  box-sizing:border-box;   /* 🔥 MAIN FIX */
+}
+
+/* TIME */
+.time{
+  font-size:13px;
+  color:#333;
+  margin:4px 0;
+}
+
+/* ROW */
+/* ================= TICKET ROW ================= */
+.ticket-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+.ticket-row:last-child{
+  border-bottom:none;
+}
+
+/* LEFT TEXT */
+.ticket-row span{
+  font-size:15px;
+  font-weight:600;
+  color:#333;
+}
+
+/* ================= QTY CONTROL ================= */
+.qty{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* BUTTON STYLE */
+.qty button{
+  width:34px;
+  height:34px;
+
+  border-radius:50%;
+  border:none;
+
+  background:#3f5f3f;
+  color:#fff;
+
+  font-size:16px;
+  font-weight:bold;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+  transition:0.2s;
+}
+
+/* HOVER EFFECT */
+.qty button:hover{
+  background:#2f4f2f;
+  transform:scale(1.1);
+}
+
+/* COUNT NUMBER */
+.qty span{
+  min-width:20px;
+  text-align:center;
+  font-size:16px;
+  font-weight:800;
+  color:#000;
+}
+
+/* INPUT */
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+/* ================= TOTAL SUMMARY ================= */
+.total-box{
+  text-align:left;
+}
+
+/* SUMMARY LIST */
+.summary-list{
+  margin-top:10px;
+  font-size:14px;
+  color:#333;
+}
+
+/* EACH ROW */
+.summary-list div{
+  display:flex;
+  justify-content:space-between;
+  margin:4px 0;
+}
+
+/* FINAL TOTAL BOX */
+.final-total{
+  margin-top:12px;
+
+  background:#f5f5f5;
+  border-radius:10px;
+
+  padding:12px;
+
+  text-align:center;
+
+  font-size:20px;
+  font-weight:900;
+  color:#000;
+
+  box-shadow:inset 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* BUTTON AREA */
+.bottom{
+  position:sticky;
+  bottom:0;
+  display:flex;
+  gap:10px;
+  background:#efe6d6;
+  padding:10px 0;
+}
+
+/* BUTTON */
+button{
+  flex:1;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:#3f5f3f;
+  color:#fff;
+  font-weight:700;
+}
+
+/* ================= FORM GROUP ================= */
+
+.form-group{
+  margin-bottom:14px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* LABEL */
+.form-group label{
+  font-size:13px;
+  font-weight:700;
+  color:#3f5f3f;
+  margin-bottom:4px;
+}
+
+/* INPUT STYLE */
+.form-group input{
+  width:100%;
+  padding:12px;
+
+  border-radius:12px;
+  border:1px solid #ccc;
+
+  font-size:14px;
+
+  transition:0.3s;
+  outline:none;
+}
+
+/* FOCUS EFFECT */
+.form-group input:focus{
+  border-color:#3f5f3f;
+  box-shadow:0 0 0 2px rgba(63,95,63,0.15);
+}
+
+/* NOTE TEXT */
+.input-note{
+  font-size:11px;
+  color:#777;
+  margin-top:4px;
+  line-height:1.3;
+}
+
+.form-group input{
+  box-sizing:border-box;   /* 🔥 MAIN FIX */
+}

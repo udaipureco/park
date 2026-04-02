@@ -38,13 +38,12 @@ document.addEventListener("DOMContentLoaded", function(){
       ticketHTML = "<div>No tickets selected</div>";
     }
 
+    // UI update
     document.getElementById("ticketDetails").innerHTML = ticketHTML;
 
-    // 💰 Total
     document.getElementById("totalAmount").innerText =
       "TOTAL ₹" + (data.total || 0);
 
-    // 👤 User
     document.getElementById("name").innerText =
       "Name: " + (data.name || "-");
 
@@ -100,6 +99,6 @@ function confirmBooking(){
     return;
   }
 
-  // 🔥 NO ALERT → DIRECT SUCCESS
-  window.location.replace("success.html");
+  // ✅ GO TO PAYMENT PAGE
+  window.location.href = "phonepe.html";
 }

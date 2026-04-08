@@ -254,9 +254,6 @@ document.getElementById("menuCycleBtn")?.addEventListener("click", () => {
   // scroll unlock
   document.body.style.overflow = "auto";
 
-  // history fix (important)
-  if(history.state && history.state.menu){
-    history.back();
   }
 
   // small delay for smooth UX
@@ -396,3 +393,165 @@ if(rulesBtn){
 
   });
 }
+
+// ================= EV CART SYSTEM =================
+
+(function(){
+
+  let count = 1;
+  const price = 20;
+
+  const minusBtn = document.getElementById("evMinus");
+  const plusBtn = document.getElementById("evPlus");
+  const countText = document.getElementById("evCount");
+  const totalText = document.getElementById("evTotal");
+
+  function updateUI(){
+    countText.innerText = count;
+    totalText.innerText = count * price;
+  }
+
+  // ➖ Minus Button
+  if(minusBtn){
+    minusBtn.addEventListener("click", () => {
+      if(count > 1){
+        count--;
+        updateUI();
+      }
+    });
+  }
+
+  // ➕ Plus Button
+  if(plusBtn){
+    plusBtn.addEventListener("click", () => {
+      count++;
+      updateUI();
+    });
+  }
+
+  // 🔥 Initial Update
+  updateUI();
+
+})();
+
+// ================= ALL BOOKING SYSTEM =================
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  // PRICE LIST
+  const prices = {
+    adult: 10,
+    child: 5,
+    motor: 100,
+    shikara: 100,
+    paddle: 50,
+    ev: 20
+  };
+
+  // COUNT STORAGE
+  const counts = {
+    adult: 0,
+    child: 0,
+    motor: 0,
+    shikara: 0,
+    paddle: 0,
+    ev: 0
+  };
+
+  // UPDATE UI FUNCTION
+  function updateUI(){
+
+    // update count
+    document.getElementById("adultCount").innerText = counts.adult;
+    document.getElementById("childCount").innerText = counts.child;
+    document.getElementById("motorCount").innerText = counts.motor;
+    document.getElementById("shikaraCount").innerText = counts.shikara;
+    document.getElementById("paddleCount").innerText = counts.paddle;
+    document.getElementById("evCountAll").innerText = counts.ev;
+
+    // calculate total
+    let total = 0;
+
+    for(let key in counts){
+      total += counts[key] * prices[key];
+    }
+
+    // update total
+    document.getElementById("grandTotal").innerText = total;
+  }
+
+  // ➕ PLUS BUTTON
+  document.querySelectorAll(".plus").forEach(btn => {
+    btn.addEventListener("click", function(){
+      let type = this.getAttribute("data-type");
+      counts[type]++;
+      updateUI();
+    });
+  });
+
+  // ➖ MINUS BUTTON
+  document.querySelectorAll(".minus").forEach(btn => {
+    btn.addEventListener("click", function(){
+      let type = this.getAttribute("data-type");
+
+      if(counts[type] > 0){
+        counts[type]--;
+        updateUI();
+      }
+    });
+  });
+
+  // FIRST LOAD
+  updateUI();
+
+});
+
+// ================= FAQ TOGGLE =================
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach(item => {
+
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    const icon = item.querySelector(".faq-icon");
+
+    question.addEventListener("click", function(){
+
+      const isOpen = item.classList.contains("active");
+
+      // 🔥 close all
+      faqItems.forEach(i => {
+        i.classList.remove("active");
+
+        const ans = i.querySelector(".faq-answer");
+        const icn = i.querySelector(".faq-icon");
+
+        if(ans){
+          ans.style.maxHeight = null;
+        }
+        if(icn){
+          icn.innerText = "+";
+        }
+      });
+
+      // 🔥 open clicked
+      if(!isOpen){
+        item.classList.add("active");
+
+        if(answer){
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+
+        if(icon){
+          icon.innerText = "−";
+        }
+      }
+
+    });
+
+  });
+
+});

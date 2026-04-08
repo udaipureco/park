@@ -214,3 +214,28 @@ document.querySelectorAll(".faq-question").forEach(q => {
 
   });
 });
+
+let price = 20;
+let count = 1;
+
+const minus = document.getElementById("evMinus");
+const plus = document.getElementById("evPlus");
+const countText = document.getElementById("evCount");
+const totalText = document.getElementById("evTotal");
+
+function updateUI(){
+  countText.innerText = count;
+  totalText.innerText = count * price;
+}
+
+plus.addEventListener("click", () => {
+  count++;
+  updateUI();
+});
+
+minus.addEventListener("click", () => {
+  if(count > 1){
+    count--;
+    updateUI();
+  }
+});

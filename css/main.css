@@ -568,13 +568,16 @@ transform:scale(0.92);
 /* ================= EV-CART ================= */
 
 .ev-cart{
-width:92%;
-margin:20px auto;
-border-radius:18px;
-overflow:hidden;
+  width:92%;
+  margin:20px auto;
+  border-radius:18px;
+  overflow:hidden;
 
-background:url("../images/ekart/bg1.jpg") center/cover no-repeat;
-position:relative;
+  position:relative;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("../images/facilities/ekart.jpg") center/cover no-repeat;
 }
 
 /* overlay */
@@ -583,7 +586,7 @@ content:"";
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.0);
+background:;
 backdrop-filter:blur(0.8px);
 }
 

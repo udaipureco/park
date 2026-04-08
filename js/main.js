@@ -1,241 +1,293 @@
-// ================= MENU OPEN =================
+// ================= GLOBAL SETTINGS =================
+
+// 🔥 prevent browser auto scroll restore (FREEZE FIX)
+history.scrollRestoration = "manual";
+
+
+// ================= MENU FUNCTIONS =================
+
 function openMenu(){
   const menu = document.getElementById("menu");
+
   if(menu){
     menu.classList.add("active");
     document.body.style.overflow = "hidden";
 
-    // 🔥 history add
+    // history push
     history.pushState({menu:true}, "");
   }
 }
 
-// ================= MENU CLOSE =================
 function closeMenu(){
   const menu = document.getElementById("menu");
+
   if(menu){
     menu.classList.remove("active");
     document.body.style.overflow = "auto";
   }
 }
 
-// ================= ALL EVENTS =================
-document.addEventListener("DOMContentLoaded", function(){
-
-  // ===== MENU ELEMENTS =====
+// 🔥 HOME BUTTON FUNCTION (FINAL FIX)
+function goHome(){
   const menu = document.getElementById("menu");
-  const heroBtn = document.getElementById("heroMenuBtn");
-  const headerBtn = document.querySelector(".menu");
-  const closeBtn = document.querySelector(".close-btn");
 
-  // ===== POPUP ELEMENTS =====
-  const viewBtn = document.getElementById("viewBtn");
-  const popup = document.getElementById("popup");
-  const closePopup = document.getElementById("closePopup");
-
-  // ================= MENU EVENTS =================
-
-  if(headerBtn){
-    headerBtn.addEventListener("click", openMenu);
-  }
-
-  if(heroBtn){
-    heroBtn.addEventListener("click", openMenu);
-  }
-
-  if(closeBtn){
-    closeBtn.addEventListener("click", function(){
-      closeMenu();
-      history.back(); // 🔥 back sync
-    });
-  }
-
-  // outside click menu close
+  // menu close
   if(menu){
-    menu.addEventListener("click", function(e){
-      if(e.target === menu){
-        closeMenu();
-        history.back(); // 🔥 sync
-      }
-    });
+    menu.classList.remove("active");
   }
 
-  // ================= POPUP EVENTS =================
+  document.body.style.overflow = "auto";
 
-  // 🔥 OPEN POPUP
-  if(viewBtn){
-    viewBtn.addEventListener("click", function(){
-
-      if(popup){
-        popup.style.display = "flex";
-        document.body.style.overflow = "hidden";
-
-        // 🔥 history add
-        history.pushState({popup:true}, "");
-      }
-
-    });
+  // 🔥 IMPORTANT: history clean karo
+  if(history.state && history.state.menu){
+    history.back(); // fake state remove
   }
 
-  // 🔥 CLOSE POPUP BUTTON
-  if(closePopup){
-    closePopup.addEventListener("click", function(){
-
-      if(popup){
-        popup.style.display = "none";
-        document.body.style.overflow = "auto";
-
-        history.back(); // 🔥 back sync
-      }
-
-    });
-  }
-
-  // 🔥 CLICK OUTSIDE CLOSE POPUP
-  if(popup){
-    popup.addEventListener("click", function(e){
-
-      if(e.target === popup){
-        popup.style.display = "none";
-        document.body.style.overflow = "auto";
-
-        history.back(); // 🔥 sync
-      }
-
-    });
-  }
-
-  // ================= 🔥 BACK BUTTON CONTROL =================
-  window.addEventListener("popstate", function(){
-
-    // popup open hai to close karo
-    if(popup && popup.style.display === "flex"){
-      popup.style.display = "none";
-      document.body.style.overflow = "auto";
-      return;
-    }
-
-    // menu open hai to close karo
-    if(menu && menu.classList.contains("active")){
-      menu.classList.remove("active");
-      document.body.style.overflow = "auto";
-      return;
-    }
-
-  });
-
-});
-
-// ===== BOATING POPUP =====
-
-let openBtn = document.getElementById("openBoatingPopup");
-let popup = document.getElementById("boatingPopup");
-let closeBtn = document.getElementById("closeBoating");
-
-if(openBtn){
-  openBtn.addEventListener("click", () => {
-    popup.classList.add("active");
-    document.body.style.overflow = "hidden"; // 🔥 scroll lock
-  });
-}
-
-if(closeBtn){
-  closeBtn.addEventListener("click", () => {
-    popup.classList.remove("active");
-    document.body.style.overflow = "auto";
-  });
-}
-
-// बाहर क्लिक करने पर बंद
-window.addEventListener("click", (e) => {
-  if(e.target === popup){
-    popup.classList.remove("active");
-    document.body.style.overflow = "auto";
-  }
-});
-
-// ===== EV POPUP =====
-
-let evBtn = document.getElementById("openEvPopup");
-let evPopup = document.getElementById("evPopup");
-let closeEv = document.getElementById("closeEv");
-
-if(evBtn){
-  evBtn.addEventListener("click", () => {
-    evPopup.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
-}
-
-if(closeEv){
-  closeEv.addEventListener("click", () => {
-    evPopup.classList.remove("active");
-    document.body.style.overflow = "auto";
-  });
-}
-
-window.addEventListener("click", (e) => {
-  if(e.target === evPopup){
-    evPopup.classList.remove("active");
-    document.body.style.overflow = "auto";
-  }
-});
-
-// ================= MAP LINKS =================
-
-// 📍 OPEN MAP (your link)
-function openMap(){
-  window.open("https://goo.gl/maps/jsEZEF1yoknBL5tH9?g_st=ac", "_blank");
-}
-
-// ➤ GET DIRECTIONS (your link)
-function getDirections(){
-  window.open("https://maps.app.goo.gl/5J92GN5sQwnHfRf46", "_blank");
-}
-
-// ================= SCROLL TO LOCATION =================
-function scrollToLocation(){
-  const section = document.getElementById("location");
-
-  const y = section.getBoundingClientRect().top + window.pageYOffset - 120;
-
+  // scroll top
   window.scrollTo({
-    top: y,
+    top: 0,
     behavior: "smooth"
   });
 }
 
-document.querySelectorAll(".faq-question").forEach(q => {
-  q.addEventListener("click", () => {
 
-    let parent = q.parentElement;
 
-    parent.classList.toggle("active");
+// ================= MAIN INIT =================
 
+document.addEventListener("DOMContentLoaded", function(){
+
+  // ===== MENU ELEMENTS =====
+  const menu = document.getElementById("menu");
+  const heroMenuBtn = document.getElementById("heroMenuBtn");
+  const headerMenuBtn = document.querySelector(".menu");
+  const closeMenuBtn = document.querySelector(".close-btn");
+
+  // ===== ENTRY POPUP =====
+  const entryPopup = document.getElementById("popup");
+  const openEntryBtn = document.getElementById("viewBtn");
+  const closeEntryBtn = document.getElementById("closePopup");
+
+
+  // ================= MENU EVENTS =================
+
+  if(heroMenuBtn){
+    heroMenuBtn.addEventListener("click", openMenu);
+  }
+
+  if(headerMenuBtn){
+    headerMenuBtn.addEventListener("click", openMenu);
+  }
+
+  if(closeMenuBtn){
+    closeMenuBtn.addEventListener("click", () => {
+      closeMenu();
+      if(history.state && history.state.menu){
+  history.back();
+}
+    });
+  }
+
+  // outside click close menu
+  if(menu){
+    menu.addEventListener("click", (e) => {
+      if(e.target === menu){
+        closeMenu();
+        history.back();
+      }
+    });
+  }
+
+
+  // ================= ENTRY POPUP =================
+
+  if(openEntryBtn){
+    openEntryBtn.addEventListener("click", () => {
+
+      entryPopup.style.display = "flex";
+      document.body.style.overflow = "hidden";
+
+      history.pushState({popup:true}, "");
+    });
+  }
+
+  if(closeEntryBtn){
+    closeEntryBtn.addEventListener("click", () => {
+
+      entryPopup.style.display = "none";
+      document.body.style.overflow = "auto";
+
+      history.back();
+    });
+  }
+
+  if(entryPopup){
+    entryPopup.addEventListener("click", (e) => {
+
+      if(e.target === entryPopup){
+        entryPopup.style.display = "none";
+        document.body.style.overflow = "auto";
+
+        history.back();
+      }
+    });
+  }
+
+
+  // ================= BACK BUTTON CONTROL =================
+
+  window.addEventListener("popstate", () => {
+
+    // close entry popup
+    if(entryPopup && entryPopup.style.display === "flex"){
+      entryPopup.style.display = "none";
+      document.body.style.overflow = "auto";
+      return;
+    }
+
+    // close menu
+    if(menu && menu.classList.contains("active")){
+      closeMenu();
+      return;
+    }
+
+  });
+
+});
+
+
+// ================= BOATING POPUP =================
+
+(function(){
+
+  const boatingPopup = document.getElementById("boatingPopup");
+  const openBtn = document.getElementById("openBoatingPopup");
+  const closeBtn = document.getElementById("closeBoating");
+
+  if(openBtn){
+    openBtn.addEventListener("click", () => {
+      boatingPopup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
+  if(closeBtn){
+    closeBtn.addEventListener("click", () => {
+      boatingPopup.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if(e.target === boatingPopup){
+      boatingPopup.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
+
+})();
+
+
+// ================= EV POPUP =================
+
+(function(){
+
+  const evPopup = document.getElementById("evPopup");
+  const openBtn = document.getElementById("openEvPopup");
+  const closeBtn = document.getElementById("closeEv");
+
+  if(openBtn){
+    openBtn.addEventListener("click", () => {
+      evPopup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  }
+
+  if(closeBtn){
+    closeBtn.addEventListener("click", () => {
+      evPopup.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  window.addEventListener("click", (e) => {
+    if(e.target === evPopup){
+      evPopup.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  });
+
+})();
+
+
+// ================= FAQ TOGGLE =================
+
+document.querySelectorAll(".faq-question").forEach(item => {
+  item.addEventListener("click", () => {
+    item.parentElement.classList.toggle("active");
   });
 });
 
-let price = 20;
-let count = 1;
 
-const minus = document.getElementById("evMinus");
-const plus = document.getElementById("evPlus");
-const countText = document.getElementById("evCount");
-const totalText = document.getElementById("evTotal");
+// ================= EV COUNTER =================
 
-function updateUI(){
-  countText.innerText = count;
-  totalText.innerText = count * price;
+(function(){
+
+  const price = 20;
+  let count = 1;
+
+  const minusBtn = document.getElementById("evMinus");
+  const plusBtn = document.getElementById("evPlus");
+  const countText = document.getElementById("evCount");
+  const totalText = document.getElementById("evTotal");
+
+  function updateUI(){
+    if(countText && totalText){
+      countText.innerText = count;
+      totalText.innerText = count * price;
+    }
+  }
+
+  if(plusBtn){
+    plusBtn.addEventListener("click", () => {
+      count++;
+      updateUI();
+    });
+  }
+
+  if(minusBtn){
+    minusBtn.addEventListener("click", () => {
+      if(count > 1){
+        count--;
+        updateUI();
+      }
+    });
+  }
+
+})();
+
+
+// ================= MAP FUNCTIONS =================
+
+function openMap(){
+  window.open("https://goo.gl/maps/jsEZEF1yoknBL5tH9?g_st=ac", "_blank");
 }
 
-plus.addEventListener("click", () => {
-  count++;
-  updateUI();
-});
+function getDirections(){
+  window.open("https://maps.app.goo.gl/5J92GN5sQwnHfRf46", "_blank");
+}
 
-minus.addEventListener("click", () => {
-  if(count > 1){
-    count--;
-    updateUI();
+
+// ================= SCROLL LOCATION =================
+
+function scrollToLocation(){
+  const section = document.getElementById("location");
+
+  if(section){
+    const y = section.getBoundingClientRect().top + window.pageYOffset - 120;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth"
+    });
   }
-});
+}

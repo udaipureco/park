@@ -780,10 +780,30 @@ color:#efe6d6;
 
 /* buttons */
 .booking-bottom{
-margin-top:15px;
-display:flex;
-justify-content:center;
-gap:12px;
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.booking-btn{
+  flex: 1;
+
+  padding: 20px 20px;   /* 🔥 height aur increase */
+  font-size: 17px;      /* 🔥 text thoda aur bada */
+
+  text-align: center;
+  border-radius: 14px;  /* 🔥 thoda premium curve */
+
+  background: #3f5f3f;
+  color: #fff;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.booking-btn:hover{
+  transform: scale(1.05);
+  background: #2e4a2e;
 }
 
 .booking-btn{
@@ -1403,21 +1423,23 @@ padding:20px 15px;
 
 /* MAIN BOX */
 .eco-box{
-display:flex;
-align-items:center;
+  display:flex;
+  align-items:center;
 
-background:#efe6d6;
-border-radius:25px;
-overflow:hidden;
+  background:#efe6d6;
+  border-radius:25px;
+  overflow:hidden;
 
-box-shadow:
-0 15px 40px rgba(0,0,0,0.2),
-0 0 20px rgba(63,95,63,0.2);
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.2),
+  0 0 20px rgba(63,95,63,0.2);
 
-transition:0.4s ease;
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 0.8s ease forwards;
+  transition:0.4s ease;
+
+  /* 🔥 REMOVE THESE */
+  opacity:1;
+  transform:none;
+  animation:none;
 }
 
 /* 🔥 HOVER */
@@ -2924,4 +2946,8 @@ a:hover{
 /* PANEL ACTIVE */
 .menu-overlay.active .menu-panel{
   transform:translateX(0);
+}
+
+.menu-overlay {
+  transition: 0.4s ease;
 }

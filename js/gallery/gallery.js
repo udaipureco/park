@@ -4,24 +4,42 @@ const galleryData = [
     category: "birds",
     title: "Birds",
     images: [
-      {thumb:"../../Images/Gallery/Bird/bird1.webp", full:"../../Images/Gallery/Bird/bird1.webp"},
-      {thumb:"../../Images/Gallery/Bird/bird2.webp", full:"../../Images/Gallery/Bird/bird2.webp"}
+      {
+        thumb:"../../images/gallery/bird/bird1.webp",
+        full:"../../images/gallery/bird/bird1.webp"
+      },
+      {
+        thumb:"../../images/gallery/bird/bird2.webp",
+        full:"../../images/gallery/bird/bird2.webp"
+      }
     ]
   },
   {
     category: "wildlife",
     title: "Wildlife",
     images: [
-      {thumb:"../../Images/Gallery/Wildlife/wild1.webp", full:"../../Images/Gallery/Wildlife/wild1.webp"},
-      {thumb:"../../Images/Gallery/Wildlife/wild2.webp", full:"../../Images/Gallery/Wildlife/wild2.webp"}
+      {
+        thumb:"../../images/gallery/wildlife/wild1.webp",
+        full:"../../images/gallery/wildlife/wild1.webp"
+      },
+      {
+        thumb:"../../images/gallery/wildlife/wild2.webp",
+        full:"../../images/gallery/wildlife/wild2.webp"
+      }
     ]
   },
   {
     category: "forest",
     title: "Forest",
     images: [
-      {thumb:"../../Images/Gallery/Forest/forest1.webp", full:"../../Images/Gallery/Forest/forest1.webp"},
-      {thumb:"../../Images/Gallery/Forest/forest2.webp", full:"../../Images/Gallery/Forest/forest2.webp"}
+      {
+        thumb:"../../images/gallery/forest/forest1.webp",
+        full:"../../images/gallery/forest/forest1.webp"
+      },
+      {
+        thumb:"../../images/gallery/forest/forest2.webp",
+        full:"../../images/gallery/forest/forest2.webp"
+      }
     ]
   }
 ];

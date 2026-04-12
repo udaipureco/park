@@ -42,8 +42,8 @@
   <div class="hero-controls">
 
     <div class="left-controls">
-      <div class="ctrl-btn" data-testid="lang-hindi-btn">Hindi</div>
-      <div class="ctrl-btn" data-testid="lang-english-btn">English</div>
+      <div class="ctrl-btn" data-testid="lang-hindi-btn" data-lang="hi" id="langHindiBtn">Hindi</div>
+      <div class="ctrl-btn lang-active" data-testid="lang-english-btn" data-lang="en" id="langEnglishBtn">English</div>
     </div>
 
     <div class="ctrl-btn menu-btn" id="heroMenuBtn" data-testid="hero-menu-btn">
@@ -62,17 +62,17 @@
   <!-- CENTER CONTENT -->
   <div class="hero-center">
 
-    <h1 data-testid="hero-title">Explore Udaipur Wildlife Sanctuary</h1>
+    <h1 data-testid="hero-title" data-i18n="hero_title">Explore Udaipur Wildlife Sanctuary</h1>
 
-    <p>
+    <p data-i18n="hero_subtitle">
       Discover the untamed beauty of nature,<br>
       home to diverse wildlife in the heart of Udaipur
     </p>
 
     <!-- TICKETS -->
     <div class="hero-tickets">
-      <div class="ticket-box" data-testid="adult-ticket-box">ADULT ENTRY<br><span>TICKET &#8377;10</span></div>
-      <div class="ticket-box" data-testid="child-ticket-box">CHILD ENTRY<br><span>TICKET &#8377;5</span></div>
+      <div class="ticket-box" data-testid="adult-ticket-box" data-i18n-html="adult_ticket">ADULT ENTRY<br><span>TICKET &#8377;10</span></div>
+      <div class="ticket-box" data-testid="child-ticket-box" data-i18n-html="child_ticket">CHILD ENTRY<br><span>TICKET &#8377;5</span></div>
     </div>
 
   </div>
@@ -121,13 +121,13 @@
 
 <!-- ================= BOATING ================= -->
 
-<section class="boating-box" id="boating" data-testid="boating-section">
+<section class="boating-box scroll-reveal" id="boating" data-testid="boating-section">
 
   <div class="boating-content">
 
-    <h2 class="boating-title">Boating Experience</h2>
+    <h2 class="boating-title" data-i18n="boating_title">Boating Experience</h2>
 
-    <p class="boating-text">
+    <p class="boating-text" data-i18n="boating_text">
       Enjoy peaceful rides on serene waters surrounded by nature and wildlife.
     </p>
 
@@ -238,12 +238,12 @@
 <div class="booking-wrapper">
 
   <!-- EV-CART -->
-  <section class="ev-cart" id="ev" data-testid="ev-cart-section">
+  <section class="ev-cart scroll-reveal" id="ev" data-testid="ev-cart-section">
 
     <div class="ev-content">
 
-      <h2 class="ev-title">EV-CART Booking</h2>
-      <p class="ev-sub">Book your eco vehicle ride easily</p>
+      <h2 class="ev-title" data-i18n="ev_title">EV-CART Booking</h2>
+      <p class="ev-sub" data-i18n="ev_sub">Book your eco vehicle ride easily</p>
 
       <div class="ev-item">
   <span>EV-CART TICKET &#8377;20</span>
@@ -309,12 +309,12 @@
   </section>
 
   <!-- ALL BOOKING -->
-<section class="all-booking" id="booking" data-testid="all-booking-section">
+<section class="all-booking scroll-reveal" id="booking" data-testid="all-booking-section">
 
   <div class="booking-content">
 
-    <h2 class="booking-title">All In One Booking</h2>
-    <p class="booking-sub">Book everything in one place</p>
+    <h2 class="booking-title" data-i18n="booking_title">All In One Booking</h2>
+    <p class="booking-sub" data-i18n="booking_sub">Book everything in one place</p>
 
     <!-- ENTRY -->
     <div class="booking-group">
@@ -427,7 +427,7 @@
 </section>
 
 <!-- ================= ATTRACTIONS ================= -->
-<section class="services services-bg" id="attractions" data-testid="attractions-section">
+<section class="services services-bg scroll-reveal-stagger" id="attractions" data-testid="attractions-section">
 
 <div class="card scroll-animate" data-testid="attraction-card-1">
 <img src="images/attractions/interpre.jpg" alt="Interpretation Centre">
@@ -529,7 +529,7 @@ Explore Now
 
 <!-- ================= BIRD SANCTUARY ================= -->
 
-<section class="bird-sanctuary" data-testid="bird-sanctuary-section">
+<section class="bird-sanctuary scroll-slide-left" data-testid="bird-sanctuary-section">
 
   <div class="bird-box">
 
@@ -553,7 +553,7 @@ Explore Now
 
 <!-- ================= WILDLIFE SANCTUARY ================= -->
 
-<section class="wildlife" data-testid="wildlife-section">
+<section class="wildlife scroll-slide-left" data-testid="wildlife-section">
 
   <div class="wildlife-box">
 
@@ -564,7 +564,7 @@ Explore Now
 
     <!-- RIGHT CONTENT -->
     <div class="wildlife-content">
-      <h2>Udaipur Wildlife Sanctuary</h2>
+      <h2 data-i18n="wildlife_title">Udaipur Wildlife Sanctuary</h2>
 
       <button class="wildlife-btn" data-testid="wildlife-view-btn">
         View More Details
@@ -576,7 +576,7 @@ Explore Now
 </section>
 
 <!-- ================= ECO HUT ================= -->
-<section class="eco-hut" data-testid="eco-hut-section">
+<section class="eco-hut scroll-slide-left" data-testid="eco-hut-section">
 
   <div class="eco-box">
 
@@ -607,7 +607,7 @@ Explore Now
 
     <div class="loc-title">
       <span class="loc-icon">&#128205;</span>
-      <h2>LOCATION & TIMING</h2>
+      <h2 data-i18n="loc_heading">LOCATION & TIMING</h2>
       <span class="loc-line"></span>
     </div>
 
@@ -620,7 +620,7 @@ Explore Now
 
 <div class="loc-timing">
 
-  <h3>Holiday & Timing</h3>
+  <h3 data-i18n="loc_holiday">Holiday & Timing</h3>
 
   <div class="timing-box">
 
@@ -663,17 +663,17 @@ Explore Now
 
 <!--================= FACILITIES ================ -->
 
-<section class="facilities" data-testid="facilities-section">
+<section class="facilities scroll-reveal" data-testid="facilities-section">
 
   <!-- TITLE -->
   <div class="fac-title">
     <span class="fac-icon">&#127807;</span>
-    <h2>FACILITIES</h2>
+    <h2 data-i18n="fac_heading">FACILITIES</h2>
     <span class="fac-icon">&#127807;</span>
   </div>
 
   <!-- GRID BOX -->
-  <div class="fac-grid">
+  <div class="fac-grid scroll-reveal-stagger">
 
     <!-- CARD 1 -->
     <div class="fac-card" data-testid="facility-boating">
@@ -726,7 +726,7 @@ Explore Now
 </section>
 
 <!-- ================= SOUVENIR SHOP ================= -->
-<section class="souvenir" data-testid="souvenir-section">
+<section class="souvenir scroll-slide-left" data-testid="souvenir-section">
 
   <div class="souvenir-box">
 
@@ -763,7 +763,7 @@ Explore Now
         <path d="M2 12c6-10 18-10 20 0-6 2-14 2-20 0z" fill="#3f5f3f"/>
       </svg>
 
-      <h2>Photo Gallery</h2>
+      <h2 data-i18n="gallery_heading">Photo Gallery</h2>
 
       <!-- RIGHT LEAF -->
       <svg class="leaf" viewBox="0 0 24 24">
@@ -792,14 +792,14 @@ Explore Now
 </section>
 
 <!-- ================= RULES ================= -->
-<section class="rules-section" id="rules" data-testid="rules-section">
+<section class="rules-section scroll-reveal" id="rules" data-testid="rules-section">
 
   <div class="rules-box">
 
     <!-- TITLE -->
     <div class="rules-title">
       <span>&#10071;</span>
-      <h2>RULES & GUIDELINES</h2>
+      <h2 data-i18n="rules_heading">RULES & GUIDELINES</h2>
     </div>
 
     <!-- RULES LIST -->
@@ -807,37 +807,37 @@ Explore Now
 
       <div class="rule-item" data-testid="rule-1">
         <span class="num">1</span>
-        <p>Do Not Tease Animals</p>
+        <p data-i18n="rule_1">Do Not Tease Animals</p>
         <span class="arrow">&#8250;</span>
       </div>
 
       <div class="rule-item" data-testid="rule-2">
         <span class="num">2</span>
-        <p>Maintain Safe Distance</p>
+        <p data-i18n="rule_2">Maintain Safe Distance</p>
         <span class="arrow">&#8250;</span>
       </div>
 
       <div class="rule-item" data-testid="rule-3">
         <span class="num">3</span>
-        <p>No Outside Food</p>
+        <p data-i18n="rule_3">No Outside Food</p>
         <span class="arrow">&#8250;</span>
       </div>
 
       <div class="rule-item" data-testid="rule-4">
         <span class="num">4</span>
-        <p>Use Dustbin</p>
+        <p data-i18n="rule_4">Use Dustbin</p>
         <span class="arrow">&#8250;</span>
       </div>
 
       <div class="rule-item" data-testid="rule-5">
         <span class="num">5</span>
-        <p>Follow Staff Instructions</p>
+        <p data-i18n="rule_5">Follow Staff Instructions</p>
         <span class="arrow">&#8250;</span>
       </div>
 
       <div class="rule-item" data-testid="rule-6">
         <span class="num">6</span>
-        <p>Children must be supervised</p>
+        <p data-i18n="rule_6">Children must be supervised</p>
         <span class="arrow">&#8250;</span>
       </div>
 
@@ -846,7 +846,7 @@ Explore Now
     <!-- FAQ -->
     <div class="faq-title">
       <span>&#10067;</span>
-      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+      <h2 data-i18n="faq_heading">FREQUENTLY ASKED QUESTIONS</h2>
     </div>
 
     <!-- FAQ LIST -->
@@ -923,17 +923,17 @@ Explore Now
 
   <div class="action-box" data-testid="action-location" onclick="scrollToLocation()">
   <div class="action-icon">&#128205;</div>
-  <h3>Location</h3>
+  <h3 data-i18n="action_location">Location</h3>
 </div>
 
   <div class="action-box" data-testid="action-contact" onclick="window.location.href='pages/contact/contact.html'">
   <div class="action-icon">&#128222;</div>
-  <h3>Contact Us</h3>
+  <h3 data-i18n="action_contact">Contact Us</h3>
 </div>
 
   <div class="action-box" data-testid="action-complaint" onclick="window.location.href='pages/complaint/complaint.html'">
   <div class="action-icon">&#9888;&#65039;</div>
-  <h3>Complain</h3>
+  <h3 data-i18n="action_complain">Complain</h3>
 </div>
 
 </section>
@@ -1037,3 +1037,4 @@ fetch("components/heading.html")
 
 </body>
 </html>
+ml>

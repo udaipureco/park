@@ -567,3 +567,197 @@ function initMenu(){
     closeMenu();
   });
 }
+
+
+// ================= SCROLL ENTRANCE ANIMATIONS =================
+
+(function(){
+  var revealSelectors = '.scroll-reveal, .scroll-reveal-stagger, .scroll-slide-left, .scroll-scale';
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    function observeElements(){
+      document.querySelectorAll(revealSelectors).forEach(function(el){
+        if (!el.classList.contains('revealed')) {
+          observer.observe(el);
+        }
+      });
+    }
+
+    // Run on load and after short delay for dynamically injected content
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', observeElements);
+    } else {
+      observeElements();
+    }
+    // Re-observe after heading loads
+    setTimeout(observeElements, 1000);
+
+  } else {
+    // Fallback: reveal everything immediately
+    document.querySelectorAll(revealSelectors).forEach(function(el){
+      el.classList.add('revealed');
+    });
+  }
+})();
+
+
+// ================= HINDI / ENGLISH LANGUAGE TOGGLE =================
+
+(function(){
+
+  var translations = {
+    en: {
+      hero_title: "Explore Udaipur Wildlife Sanctuary",
+      hero_subtitle: "Discover the untamed beauty of nature,<br>home to diverse wildlife in the heart of Udaipur",
+      adult_ticket: "ADULT ENTRY<br><span>TICKET \u20B910</span>",
+      child_ticket: "CHILD ENTRY<br><span>TICKET \u20B95</span>",
+      boating_title: "Boating Experience",
+      boating_text: "Enjoy peaceful rides on serene waters surrounded by nature and wildlife.",
+      ev_title: "EV-CART Booking",
+      ev_sub: "Book your eco vehicle ride easily",
+      booking_title: "All In One Booking",
+      booking_sub: "Book everything in one place",
+      bird_title: "Udaipur Bird Sanctuary",
+      wildlife_title: "Udaipur Wildlife Sanctuary",
+      loc_heading: "LOCATION & TIMING",
+      loc_holiday: "Holiday & Timing",
+      loc_open: "<strong>Opening Time:</strong> 9 AM \u2013 5 PM",
+      loc_closed: "Monday: Closed",
+      loc_days: "Tuesday \u2013 Sunday: Open",
+      fac_heading: "FACILITIES",
+      gallery_heading: "Photo Gallery",
+      rules_heading: "RULES & GUIDELINES",
+      faq_heading: "FREQUENTLY ASKED QUESTIONS",
+      rule_1: "Do Not Tease Animals",
+      rule_2: "Maintain Safe Distance",
+      rule_3: "No Outside Food",
+      rule_4: "Use Dustbin",
+      rule_5: "Follow Staff Instructions",
+      rule_6: "Children must be supervised",
+      action_location: "Location",
+      action_contact: "Contact Us",
+      action_complain: "Complain",
+      footer_quick: "Quick Links",
+      footer_whats: "What's Here",
+      footer_programs: "Programs",
+      footer_copy: "\u00A9 2026 Udaipur Wildlife Sanctuary",
+      view_details: "VIEW MORE DETAILS",
+      book_ticket: "BOOK TICKET",
+      book_now: "BOOK NOW",
+      view_all: "View All",
+      view_more: "View More Details",
+      coming_soon: "Coming Soon"
+    },
+    hi: {
+      hero_title: "\u0909\u0926\u092F\u092A\u0941\u0930 \u0935\u0928\u094D\u092F\u091C\u0940\u0935 \u0905\u092D\u092F\u093E\u0930\u0923\u094D\u092F \u0915\u0940 \u0916\u094B\u091C \u0915\u0930\u0947\u0902",
+      hero_subtitle: "\u092A\u094D\u0930\u0915\u0943\u0924\u093F \u0915\u0940 \u0905\u0926\u092E\u094D\u092F \u0938\u0941\u0902\u0926\u0930\u0924\u093E \u0915\u0940 \u0916\u094B\u091C \u0915\u0930\u0947\u0902,<br>\u0909\u0926\u092F\u092A\u0941\u0930 \u0915\u0947 \u0939\u0943\u0926\u092F \u092E\u0947\u0902 \u0935\u093F\u0935\u093F\u0927 \u0935\u0928\u094D\u092F\u091C\u0940\u0935\u094B\u0902 \u0915\u093E \u0918\u0930",
+      adult_ticket: "\u0935\u092F\u0938\u094D\u0915 \u092A\u094D\u0930\u0935\u0947\u0936<br><span>\u091F\u093F\u0915\u091F \u20B910</span>",
+      child_ticket: "\u092C\u093E\u0932 \u092A\u094D\u0930\u0935\u0947\u0936<br><span>\u091F\u093F\u0915\u091F \u20B95</span>",
+      boating_title: "\u0928\u094C\u0915\u093E\u092F\u0928 \u0905\u0928\u0941\u092D\u0935",
+      boating_text: "\u092A\u094D\u0930\u0915\u0943\u0924\u093F \u0914\u0930 \u0935\u0928\u094D\u092F\u091C\u0940\u0935\u094B\u0902 \u0938\u0947 \u0918\u093F\u0930\u0947 \u0936\u093E\u0902\u0924 \u092A\u093E\u0928\u0940 \u092A\u0930 \u0938\u0935\u093E\u0930\u0940 \u0915\u093E \u0906\u0928\u0902\u0926 \u0932\u0947\u0902\u0964",
+      ev_title: "\u0908\u0935\u0940-\u0915\u093E\u0930\u094D\u091F \u092C\u0941\u0915\u093F\u0902\u0917",
+      ev_sub: "\u0906\u0938\u093E\u0928\u0940 \u0938\u0947 \u0907\u0915\u094B \u0935\u093E\u0939\u0928 \u0930\u093E\u0907\u0921 \u092C\u0941\u0915 \u0915\u0930\u0947\u0902",
+      booking_title: "\u0911\u0932 \u0907\u0928 \u0935\u0928 \u092C\u0941\u0915\u093F\u0902\u0917",
+      booking_sub: "\u0938\u092C \u0915\u0941\u091B \u090F\u0915 \u091C\u0917\u0939 \u092C\u0941\u0915 \u0915\u0930\u0947\u0902",
+      bird_title: "\u0909\u0926\u092F\u092A\u0941\u0930 \u092A\u0915\u094D\u0937\u0940 \u0905\u092D\u092F\u093E\u0930\u0923\u094D\u092F",
+      wildlife_title: "\u0909\u0926\u092F\u092A\u0941\u0930 \u0935\u0928\u094D\u092F\u091C\u0940\u0935 \u0905\u092D\u092F\u093E\u0930\u0923\u094D\u092F",
+      loc_heading: "\u0938\u094D\u0925\u093E\u0928 \u0914\u0930 \u0938\u092E\u092F",
+      loc_holiday: "\u091B\u0941\u091F\u094D\u091F\u0940 \u0914\u0930 \u0938\u092E\u092F",
+      loc_open: "<strong>\u0916\u0941\u0932\u0928\u0947 \u0915\u093E \u0938\u092E\u092F:</strong> \u0938\u0941\u092C\u0939 9 \u2013 \u0936\u093E\u092E 5",
+      loc_closed: "\u0938\u094B\u092E\u0935\u093E\u0930: \u092C\u0902\u0926",
+      loc_days: "\u092E\u0902\u0917\u0932\u0935\u093E\u0930 \u2013 \u0930\u0935\u093F\u0935\u093E\u0930: \u0916\u0941\u0932\u093E",
+      fac_heading: "\u0938\u0941\u0935\u093F\u0927\u093E\u090F\u0902",
+      gallery_heading: "\u092B\u094B\u091F\u094B \u0917\u0948\u0932\u0930\u0940",
+      rules_heading: "\u0928\u093F\u092F\u092E \u0914\u0930 \u0926\u093F\u0936\u093E\u0928\u093F\u0930\u094D\u0926\u0947\u0936",
+      faq_heading: "\u0905\u0915\u094D\u0938\u0930 \u092A\u0942\u091B\u0947 \u091C\u093E\u0928\u0947 \u0935\u093E\u0932\u0947 \u092A\u094D\u0930\u0936\u094D\u0928",
+      rule_1: "\u091C\u093E\u0928\u0935\u0930\u094B\u0902 \u0915\u094B \u0928 \u091B\u0947\u0921\u093C\u0947\u0902",
+      rule_2: "\u0938\u0941\u0930\u0915\u094D\u0937\u093F\u0924 \u0926\u0942\u0930\u0940 \u092C\u0928\u093E\u090F \u0930\u0916\u0947\u0902",
+      rule_3: "\u092C\u093E\u0939\u0930 \u0915\u093E \u0916\u093E\u0928\u093E \u0928\u0939\u0940\u0902",
+      rule_4: "\u0915\u0942\u0921\u093C\u0947\u0926\u093E\u0928 \u0915\u093E \u0909\u092A\u092F\u094B\u0917 \u0915\u0930\u0947\u0902",
+      rule_5: "\u0915\u0930\u094D\u092E\u091A\u093E\u0930\u093F\u092F\u094B\u0902 \u0915\u0947 \u0928\u093F\u0930\u094D\u0926\u0947\u0936 \u092E\u093E\u0928\u0947\u0902",
+      rule_6: "\u092C\u091A\u094D\u091A\u094B\u0902 \u0915\u0940 \u0928\u093F\u0917\u0930\u093E\u0928\u0940 \u0915\u0930\u0947\u0902",
+      action_location: "\u0938\u094D\u0925\u093E\u0928",
+      action_contact: "\u0938\u0902\u092A\u0930\u094D\u0915 \u0915\u0930\u0947\u0902",
+      action_complain: "\u0936\u093F\u0915\u093E\u092F\u0924",
+      footer_quick: "\u0924\u094D\u0935\u0930\u093F\u0924 \u0932\u093F\u0902\u0915",
+      footer_whats: "\u092F\u0939\u093E\u0901 \u0915\u094D\u092F\u093E \u0939\u0948",
+      footer_programs: "\u0915\u093E\u0930\u094D\u092F\u0915\u094D\u0930\u092E",
+      footer_copy: "\u00A9 2026 \u0909\u0926\u092F\u092A\u0941\u0930 \u0935\u0928\u094D\u092F\u091C\u0940\u0935 \u0905\u092D\u092F\u093E\u0930\u0923\u094D\u092F",
+      view_details: "\u0935\u093F\u0935\u0930\u0923 \u0926\u0947\u0916\u0947\u0902",
+      book_ticket: "\u091F\u093F\u0915\u091F \u092C\u0941\u0915 \u0915\u0930\u0947\u0902",
+      book_now: "\u0905\u092D\u0940 \u092C\u0941\u0915 \u0915\u0930\u0947\u0902",
+      view_all: "\u0938\u092C \u0926\u0947\u0916\u0947\u0902",
+      view_more: "\u0914\u0930 \u0926\u0947\u0916\u0947\u0902",
+      coming_soon: "\u091C\u0932\u094D\u0926 \u0906 \u0930\u0939\u093E \u0939\u0948"
+    }
+  };
+
+  var currentLang = localStorage.getItem('uws_lang') || 'en';
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('uws_lang', lang);
+
+    var t = translations[lang];
+    if (!t) return;
+
+    // Update all data-i18n elements (text content)
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) {
+        if (el.getAttribute('data-i18n-html') !== null || key.indexOf('subtitle') > -1) {
+          el.innerHTML = t[key];
+        } else {
+          el.textContent = t[key];
+        }
+      }
+    });
+
+    // Update all data-i18n-html elements (innerHTML)
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n-html');
+      if (t[key] !== undefined) {
+        el.innerHTML = t[key];
+      }
+    });
+
+    // Update button active states
+    var hindiBtn = document.getElementById('langHindiBtn');
+    var englishBtn = document.getElementById('langEnglishBtn');
+    if (hindiBtn && englishBtn) {
+      hindiBtn.classList.toggle('lang-active', lang === 'hi');
+      englishBtn.classList.toggle('lang-active', lang === 'en');
+    }
+  }
+
+  // Event delegation for language buttons
+  document.addEventListener('click', function(e) {
+    var langBtn = e.target.closest('[data-lang]');
+    if (langBtn) {
+      var lang = langBtn.getAttribute('data-lang');
+      applyLanguage(lang);
+    }
+  });
+
+  // Apply saved language on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      applyLanguage(currentLang);
+    });
+  } else {
+    applyLanguage(currentLang);
+  }
+
+})();

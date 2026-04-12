@@ -1,99 +1,14 @@
-/* BODY */
-body{
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:#efe6d6;
-}
-
-/* HEADER */
-.header{
-  background:#3f5f3f;
-  color:#efe6d6;
-  text-align:center;
-  padding:15px;
-  font-weight:900;
-}
-
-/* TITLE TOP */
-.title{
-  text-align:center;
-  margin-top:15px;
-  color:#2e4a2e;
-  font-size:26px;
-  font-weight:900;
-}
-
-/* IMAGE */
-.image-box{
-  padding:10px 15px;
-}
-
-.image-box img{
-  width:100%;
-  border-radius:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* MENU TITLE */
-.main-title{
-  text-align:center;
-  margin:20px 0;
-  color:#2e4a2e;
-}
-
-/* CONTAINER */
-.menu-container{
-  padding:15px;
-}
-
-/* SECTION */
-.menu-section{
-  margin-bottom:25px;
-}
-
-.menu-section h3{
-  margin-bottom:10px;
-  color:#3f5f3f;
-}
-
-/* ITEM */
-.menu-item{
-  background:#efe6d6;
-  border-radius:12px;
-  padding:12px 15px;
-  margin-bottom:10px;
-
-  display:flex;
-  justify-content:space-between;
-
-  box-shadow:0 5px 12px rgba(0,0,0,0.1);
-  transition:0.3s;
-}
-
-/* HOVER */
-.menu-item:hover{
-  transform:scale(1.03);
-}
-
-/* COMING SOON */
-.coming{
-  margin:20px;
-  padding:15px;
-  text-align:center;
-  background:#3f5f3f;
-  color:#efe6d6;
-  border-radius:20px;
-  font-weight:900;
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* BUTTON (future use) */
-.book-btn{
-  display:inline-block;
-  padding:10px 15px;
-  background:#3f5f3f;
-  color:#efe6d6;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
+@import url('../shared-base.css');
+.title { text-align: center; margin-top: 0.875rem; color: var(--text); font-size: 1.5rem; font-weight: 900; }
+.image-box { padding: 0.625rem 0.875rem; max-width: 600px; margin: 0 auto; }
+.image-box img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.main-title { text-align: center; margin: 1.25rem 0; color: var(--text); }
+.menu-container { padding: 0.875rem; max-width: 600px; margin: 0 auto; }
+.menu-section { margin-bottom: 1.5rem; }
+.menu-section h3 { margin-bottom: 0.625rem; color: var(--green); font-weight: 800; }
+.menu-item { background: var(--bg); border-radius: var(--radius-md); padding: 0.75rem 0.875rem; margin-bottom: 0.625rem; display: flex; justify-content: space-between; box-shadow: var(--shadow-sm); transition: transform var(--transition); font-size: 0.9375rem; }
+.menu-item:hover { transform: scale(1.02); }
+.coming { margin: 1.25rem; padding: 0.875rem; text-align: center; background: var(--green); color: var(--bg); border-radius: var(--radius-xl); font-weight: 900; box-shadow: var(--shadow-md); max-width: 600px; margin-left: auto; margin-right: auto; }
+.book-btn { display: inline-block; padding: 0.625rem 0.875rem; background: var(--green); color: var(--bg); border-radius: var(--radius-sm); text-decoration: none; font-weight: 700; }
+@media (min-width: 481px) { .title { font-size: 1.625rem; } }
+@media (min-width: 1025px) { .menu-container { max-width: 700px; } .image-box { max-width: 700px; } }

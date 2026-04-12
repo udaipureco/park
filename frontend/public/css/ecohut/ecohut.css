@@ -1,77 +1,10 @@
-body{
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:#efe6d6;
-
-  display:flex;              /* 🔥 ADD */
-  flex-direction:column;     /* 🔥 ADD */
-  min-height:100vh;          /* 🔥 ADD */
-}
-
-/* HEADER */
-.header{
-  background:#3f5f3f;
-  color:#fff;
-  text-align:center;
-  padding:15px;
-  font-weight:900;
-}
-
-/* TITLE */
-.title{
-  text-align:center;
-  margin-top:15px;
-  color:#2e4a2e;
-  font-size:26px;
-}
-
-/* IMAGE */
-.image-box{
-  padding:10px 15px;
-}
-
-.image-box img{
-  width:100%;
-  border-radius:15px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* COMING SOON */
-.coming{
-  margin:30px 20px;
-  padding:20px;
-  text-align:center;
-  background:#3f5f3f;
-  color:#fff;
-  border-radius:20px;
-  font-size:18px;
-  font-weight:900;
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* 🔥 BACK BUTTON FIXED */
-.back-home-btn{
-  margin:40px 20px;
-  padding:14px 20px;
-
-  background:#3f5f3f;
-  color:#fff;
-
-  border-radius:12px;
-  font-weight:600;
-  font-size:16px;
-
-  width:fit-content;
-
-  cursor:pointer;
-  transition:0.3s;
-
-  margin-top:auto;   /* 🔥 MAIN FIX (push to bottom) */
-  margin-bottom:40px;
-}
-
-/* HOVER */
-.back-home-btn:hover{
-  background:#2e4a2e;
-  transform:translateX(-3px);
-}
+@import url('../shared-base.css');
+body { display: flex; flex-direction: column; min-height: 100vh; }
+.title { text-align: center; margin-top: 0.875rem; color: var(--text); font-size: 1.5rem; font-weight: 900; }
+.image-box { padding: 0.625rem 0.875rem; max-width: 600px; margin: 0 auto; }
+.image-box img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+.coming { margin: 1.5rem 1.25rem; padding: 1.25rem; text-align: center; background: var(--green); color: #fff; border-radius: var(--radius-xl); font-size: 1.0625rem; font-weight: 900; box-shadow: var(--shadow-md); max-width: 600px; margin-left: auto; margin-right: auto; }
+.back-home-btn { margin: auto 1.25rem 2.5rem; padding: 0.875rem 1.25rem; background: var(--green); color: #fff; border-radius: var(--radius-md); font-weight: 600; font-size: 1rem; width: fit-content; cursor: pointer; transition: background var(--transition); text-decoration: none; display: inline-block; }
+.back-home-btn:hover { background: var(--green-dark); }
+@media (min-width: 481px) { .title { font-size: 1.625rem; } }
+@media (min-width: 1025px) { .image-box { max-width: 700px; } .coming { max-width: 700px; } }

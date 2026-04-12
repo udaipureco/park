@@ -1,100 +1,14 @@
-:root{
-  --purple:#6a11cb;
-  --blue:#2575fc;
-  --bg:#f2f3f7;
-}
-
-body{
-  margin:0;
-  font-family:'Segoe UI',sans-serif;
-  background:var(--bg);
-  max-width:420px;
-  margin:auto;
-}
-
-/* HEADER */
-.header{
-  padding:14px;
-  text-align:center;
-  font-weight:900;
-  background:#ddd;
-}
-
-/* TOP */
-.success-top{
-  text-align:center;
-  margin:15px;
-}
-
-.success-top h2{
-  color:#0a7f2e;
-  margin-bottom:5px;
-}
-
-.success-top p{
-  color:#666;
-}
-
-/* TICKET */
-.ticket-card{
-  background:#fff;
-  margin:12px;
-  padding:18px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* TITLE */
-.title{
-  text-align:center;
-  color:var(--purple);
-  font-weight:900;
-}
-
-.subtitle{
-  text-align:center;
-  color:#666;
-  margin-bottom:10px;
-}
-
-/* ROW */
-.row{
-  display:flex;
-  justify-content:space-between;
-  margin:8px 0;
-  font-size:15px;
-}
-
-/* TOTAL */
-.total{
-  text-align:center;
-  color:var(--purple);
-  font-weight:900;
-  margin:15px 0;
-}
-
-/* BUTTON */
-.btn-group{
-  display:flex;
-  gap:10px;
-  padding:12px;
-}
-
-.btn-group button{
-  flex:1;
-  padding:14px;
-  border:none;
-  border-radius:25px;
-  font-weight:900;
-}
-
-/* HOME */
-.home{
-  background:#ccc;
-}
-
-/* DOWNLOAD */
-.download{
-  background:linear-gradient(135deg,#6a11cb,#2575fc);
-  color:#fff;
-}
+@import url('../shared-base.css');
+:root { --purple: #6a11cb; --blue: #2575fc; }
+body { background: #f2f3f7; }
+.header { background: #ddd; color: var(--text); }
+.success-top { text-align: center; margin: 0.875rem; }
+.success-top h2 { color: #0a7f2e; margin-bottom: 0.3125rem; }
+.success-top p { color: var(--text-light); }
+.ticket-card { background: #fff; margin: 0.75rem auto; padding: 1.125rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); max-width: 500px; }
+.title { text-align: center; color: var(--purple); font-weight: 900; }
+.subtitle { text-align: center; color: var(--text-light); margin-bottom: 0.625rem; }
+.row { display: flex; justify-content: space-between; margin: 0.5rem 0; font-size: 0.9375rem; }
+.total { text-align: center; color: var(--purple); font-weight: 900; font-size: 1.25rem; margin: 0.875rem 0; }
+.home { background: #ccc; color: #333; }
+.download { background: linear-gradient(135deg, var(--purple), var(--blue)); color: #fff; }
